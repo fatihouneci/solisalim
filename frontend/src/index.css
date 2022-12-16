@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.input {
+  @apply my-1 block w-full px-3 py-2 outline-none border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md text-sm focus:outline-none;
+}
+
+.input.error {
+  @apply border-2 border-red-500;
+}
+
+.error {
+  @apply block text-red-500 font-semibold text-xs;
+}
+
+.btn {
+  @apply flex items-center justify-center shadow-sm w-full bg-green-600 text-white rounded-md px-4 py-2 hover:bg-green-700 text-sm;
+}
+
+.button {
+  @apply flex items-center justify-center shadow-sm  bg-green-600 text-white rounded-md px-4 py-2 hover:bg-green-700 text-sm;
+}
+
+.btn:disabled {
+  @apply bg-gray-500;
+}
+
+.inputGroup {
+  @apply flex items-center border border-gray-300 rounded-lg space-x-4;
+}
+
+.inputGroup .input {
+  @apply flex items-center border-none border-l border-l-gray-300;
+}
+
+.inputGroup select {
+  @apply px-4 border-r border-r-gray-300 focus:outline-none;
+}
