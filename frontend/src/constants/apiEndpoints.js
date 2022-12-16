@@ -1,5 +1,5 @@
 export const SOCKET_URL = "/";
-export const BASE_URL = process.env.REACT_APP_BACKEND_URL;
+export const BASE_URL = "/api";
 
 export const RECENTS_POST = BASE_URL + "/dash/recents";
 export const POPULAR_POST = BASE_URL + "/dash/popular";

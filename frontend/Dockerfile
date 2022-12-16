@@ -1,15 +1,11 @@
-# Node
-FROM node:alpine AS builder
-WORKDIR /app
-COPY package*.json .
+FROM node:alpine
+
+COPY package.json yarn.lock ./
+
 RUN npm install --legacy-peer-deps
+
 COPY . .
-RUN npm run build
 
-# Nginx
-FROM nginx:alpine
-WORKDIR /usr/share/nginx/html
-COPY --from=builder /app/build .
-EXPOSE 80
+EXPOSE 3000
 
-ENTRYPOINT [ "nginx", "-g", "daemon off;" ]
+CMD ["yarn", "start"]
