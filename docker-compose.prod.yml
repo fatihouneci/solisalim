@@ -3,6 +3,8 @@ services:
   mongodb:
     image: mongo
     container_name: solisalim_db
+    ports:
+      - 27066:27017
     restart: always
     environment:
       - MONGO_INITDB_ROOT_USERNAME=root
