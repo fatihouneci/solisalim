@@ -6,9 +6,9 @@ services:
     ports:
       - 27066:27017
     restart: always
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=root
-      - MONGO_INITDB_ROOT_PASSWORD=example
+    # environment:
+    #   - MONGO_INITDB_ROOT_USERNAME=root
+    #   - MONGO_INITDB_ROOT_PASSWORD=example
     volumes:
       - db-volume:/data/db
 
@@ -21,7 +21,8 @@ services:
       - /app/node_modules
       - ./backend:/app
     environment:
-      - MONGODB_URL=mongodb://root:example@mongodb:27017/solisalim
+      # - MONGODB_URL=mongodb://root:example@mongodb:27017/solisalim
+      - MONGODB_URL=mongodb://mongodb:27017/solisalim
       - PORT=5000
       - JWT_SECRET=SECRET
     depends_on:
