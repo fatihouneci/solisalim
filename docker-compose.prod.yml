@@ -40,7 +40,7 @@ services:
       context: ./nginx
       dockerfile: Dockerfile
     ports:
-      - 3003:80
+      - 6692:80
     restart: always
 
 volumes:
