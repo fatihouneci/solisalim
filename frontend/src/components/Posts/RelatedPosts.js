@@ -20,11 +20,13 @@ const RelatedPosts = () => {
   }, [slug]);
 
   return (
-    <div className="w-full h-full m-10 border-t">
+    <div className="w-full h-full mx-10 border-t">
       {post && (
         <div className="">
-          <div className="py-[40px]">
-            <h1 className="text-2xl font-semibold">Suggestions</h1>
+          <div className="py-[10px]">
+            <h1 className="text-3xl font-extrabold tracking-tight text-gray-900 py-6">
+              Suggestions
+            </h1>
           </div>
           <div className="w-full">
             {post &&

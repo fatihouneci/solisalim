@@ -1,7 +1,6 @@
 import React from "react";
-import { CameraIcon } from "@heroicons/react/outline";
 import { useDispatch, useSelector } from "react-redux";
-import { updateAvatar, updateProfile } from "../core/redux/auth/authActions";
+import { updateAvatar, updateProfile } from "../../core/redux/auth/authActions";
 
 const EditAvatarPage = () => {
   const dispatch = useDispatch();

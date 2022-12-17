@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
-import { history } from "../core/helpers/history";
+import { history } from "../../core/helpers/history";
 import { useFormik } from "formik";
-import { login } from "../core/redux/auth/authActions";
+import { login } from "../../core/redux/auth/authActions";
 import { RefreshIcon } from "@heroicons/react/outline";
 
 const LoginPage = () => {
@@ -33,21 +33,12 @@ const LoginPage = () => {
     }
   }, [user]);
 
-  const {
-    handleSubmit,
-    handleChange,
-    handleBlur,
-    touched,
-    values,
-    errors,
-    isValid,
-    isSubmitting,
-    setSubmitting,
-  } = useFormik({
-    initialValues,
-    validationSchema,
-    onSubmit,
-  });
+  const { handleSubmit, handleChange, handleBlur, touched, values, errors } =
+    useFormik({
+      initialValues,
+      validationSchema,
+      onSubmit,
+    });
 
   return (
     <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">

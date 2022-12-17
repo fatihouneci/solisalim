@@ -1,8 +1,8 @@
 import React from "react";
-import RecentsPost from "../components/Landing/RecentsPost";
-import PopularPost from "../components/Landing/PopularPost";
-import ExclusifPost from "../components/Landing/ExclusifPost";
-import Banner from "../components/Landing/Banner";
+import RecentsPost from "../../components/Landing/RecentsPost";
+import PopularPost from "../../components/Landing/PopularPost";
+import ExclusifPost from "../../components/Landing/ExclusifPost";
+import Banner from "../../components/Landing/Banner";
 
 const LandingPage = () => {
   return (

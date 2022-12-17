@@ -1,4 +1,3 @@
-import { SearchIcon } from "@heroicons/react/outline";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
@@ -14,21 +13,20 @@ import Pagination from "../../core/components/common/Pagination";
 const PostPage = () => {
   const query = useLocation().search;
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.auth);
   const { loading, error, posts, page, pages } = useSelector(
     (state) => state.listPost
   );
   const [keyword, setKeyword] = useState();
   const [categories, setCategories] = useState([]);
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-    if (keyword.trim()) {
-      history.navigate(`/posts?keyword=${keyword}`);
-    } else {
-      history.navigate("/posts");
-    }
-  };
+  // const submitHandler = (e) => {
+  //   e.preventDefault();
+  //   if (keyword.trim()) {
+  //     history.navigate(`/posts?keyword=${keyword}`);
+  //   } else {
+  //     history.navigate("/posts");
+  //   }
+  // };
 
   useEffect(() => {
     dispatch(listPost(query));
@@ -47,10 +45,12 @@ const PostPage = () => {
   return (
     <div className="relative bg-white px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="flex">
+        <div className="flex space-x-10">
           <div className="flex-[3]">
             <div className="py-4 px-4 flex items-center justify-between sticky top-0 z-30 bg-white">
-              <h1 className="text-xl md:text-3xl">Articles</h1>
+              <h1 className="text-3xl font-extrabold tracking-tight text-gray-900 py-6">
+                Articles
+              </h1>
             </div>
 
             {loading ? (
@@ -61,7 +61,7 @@ const PostPage = () => {
               <Message variant="alert-danger">{error}</Message>
             ) : (
               <div className="my-[40px]">
-                <div className="px-4 grid grid-cols-1 gap-x-4 my-5 md:grid-cols-2 lg:grid-cols-4">
+                <div className="px-4 grid grid-cols-1 gap-x-4 my-5 md:grid-cols-2 lg:grid-cols-3">
                   {posts?.map((v) => (
                     <PostCard key={v._id} post={v} />
                   ))}
@@ -79,9 +79,11 @@ const PostPage = () => {
             )}
           </div>
           <div className="flex-[1] h-screen sticky top-0">
-            <div className="w-full h-full border-l">
+            <div className="w-full h-full">
               <div className="py-4 px-4 flex items-center justify-between z-30 bg-white">
-                <h1 className="text-xl md:text-3xl">Catégories</h1>
+                <h1 className="text-3xl font-extrabold tracking-tight text-gray-900 py-6">
+                  Catégories
+                </h1>
               </div>
               <div className="py-4 px-4">
                 {categories &&

@@ -1,15 +1,13 @@
-import { HeartIcon, ReplyIcon, ThumbUpIcon } from "@heroicons/react/outline";
+import { HeartIcon } from "@heroicons/react/outline";
 import React, { useEffect, useState } from "react";
-import { MdOutlineAddTask } from "react-icons/md";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
-import Comments from "../components/comment/Comments";
-import RelatedVideos from "../components/video/RelatedVideos";
-import VideoCard from "../components/video/VideoCard";
-import { GET_VIDEOS } from "../constants/apiEndpoints";
-import { FetchWrapper } from "../core/helpers/FetchWrapper";
-import { formatTimeAgo } from "../core/helpers/utility";
+import Comments from "../../components/comment/Comments";
+import RelatedVideos from "../../components/video/RelatedVideos";
+import { GET_VIDEOS } from "../../constants/apiEndpoints";
+import { FetchWrapper } from "../../core/helpers/FetchWrapper";
+import { formatTimeAgo } from "../../core/helpers/utility";
 
 const VideoDetailsPage = () => {
   const { user } = useSelector((state) => state.auth);
@@ -33,7 +31,7 @@ const VideoDetailsPage = () => {
       }
     };
     fetchVideo();
-  }, [videoId]);
+  }, [videoId, user?.profile?.isAdmin, user?.profile?._id]);
 
   const handleLike = async (e) => {
     e.preventDefault();

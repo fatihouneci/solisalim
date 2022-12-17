@@ -96,7 +96,7 @@ const PostDetailPage = () => {
 
   return (
     <div className="max-w-6xl mx-auto">
-      <div className="flex space-x-5">
+      <div className="flex space-x-10">
         <div className="flex-[3]">
           <div className="flex items-center justify-between my-[40px]">
             <div className="flex items-center space-x-2 text-gray-500">
@@ -174,7 +174,7 @@ const PostDetailPage = () => {
             </div>
           </div>
         </div>
-        <div className="flex-[1] sticky top-0 h-screen border-l">
+        <div className="flex-[1] h-full">
           <Comments
             postId={post?._id}
             comments={post?.comments}

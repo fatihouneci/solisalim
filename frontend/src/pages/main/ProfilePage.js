@@ -1,18 +1,18 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import PostList from "../../components/studio/PostList";
+import ProfileImg from "../../images/profile.png";
 
-const ProfileScreen = () => {
+const ProfilePage = () => {
   const auth = useSelector((state) => state.auth);
   const { user } = auth;
   return (
-    <div className="flex flex-col">
-      <div className="flex justify-center items-center space-x-4 mt-[100px]">
-        <Link to="/avatar/update">
+    <div className="max-w-6xl mx-auto">
+      <div className="flex items-center space-x-4 bg-gray-100 p-[40px]">
+        <Link to="/profile/avatar">
           {user.profile.profilePicture === "" ? (
-            <div className="flex items-center justify-center h-12 w-12 rounded-full border-2 uppercase font-bold">
-              {user.profile.initials}
-            </div>
+            <img className="h-40 w-40 rounded-full" src={ProfileImg} alt="" />
           ) : (
             <img
               className="h-40 w-40 rounded-full"
@@ -23,8 +23,10 @@ const ProfileScreen = () => {
         </Link>
         <div className="text-center">
           <div className="mb-5">
-            <h2 className="text-4xl mb-2">{user.profile.fullName}</h2>
-            <p className="text-gray-400 mb-2">{user.profile.username}</p>
+            <h2 className="text-4xl mb-2">
+              {user.profile.firstName + " " + user.profile.lastName}
+            </h2>
+            <p className="text-gray-400 mb-2">{user.profile.email}</p>
             <p className="text-gray-400 mb-2">{user.profile.about_me}</p>
           </div>
           <div className="flex items-center justify-center space-x-2 my-2">
@@ -37,8 +39,10 @@ const ProfileScreen = () => {
           </div>
         </div>
       </div>
+      {/* Mes articles */}
+      <PostList />
     </div>
   );
 };
 
-export default ProfileScreen;
+export default ProfilePage;
