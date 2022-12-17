@@ -3,9 +3,6 @@ services:
   mongodb:
     image: mongo
     restart: always
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=root
-      - MONGO_INITDB_ROOT_PASSWORD=example
     volumes:
       - db-volume:/data/db
 
@@ -19,7 +16,7 @@ services:
     ports:
       - "5000:5000"
     environment:
-      - MONGODB_URL=mongodb://root:example@mongodb:27017/testdb?authSource=admin
+      - MONGODB_URL=mongodb://mongodb:27017/testdb
       - PORT=5000
       - JWT_SECRET=SECRET
     depends_on:
@@ -35,7 +32,6 @@ services:
       - ./frontend:/app
     #request will forward to same url, so we only need /api to distinguish that this request will forward to our backend
     environment:
-      - REACT_APP_BACKEND_URL=http://backend
       - CHOKIDAR_USEPOLLING=true
 
   nginx:

@@ -32,7 +32,9 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     container_name: solisalim_app
-    #request will forward to same url, so we only need /api to distinguish that this request will forward to our backend
+    volumes:
+      - /app/node_modules
+      - ./backend:/app
     environment:
       - CHOKIDAR_USEPOLLING=true
 
